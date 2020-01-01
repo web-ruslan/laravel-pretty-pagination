@@ -7,15 +7,6 @@
 [![License](https://poser.pugx.org/vipertecpro/laravel-pretty-pagination/license)](https://packagist.org/packages/vipertecpro/laravel-pretty-pagination)
 
 This package adds the `paginate` route method to support pagination via custom routes instead of query strings. This also allows for easily translatable pagination routes ex. `/news/page/2`, `/nieuws/pagina/2`.
-
-## Postcardware
-
-You're free to use this package (it's [MIT-licensed](LICENSE.md)), but if it makes it to your production environment you are required to send us a postcard from your hometown, mentioning which of our package(s) you are using.
-
-Our address is: Spatie, Samberstraat 69D, 2060 Antwerp, Belgium.
-
-The best postcards will get published on the open source page on our website.
-
 ## Install
 Via Composer
 ``` bash
@@ -29,12 +20,12 @@ First register the service provider and facade in your application.
 
 'providers' => [
     ...
-    'Spatie\PaginateRoute\PaginateRouteServiceProvider',
+    'Vipertecpro\PaginateRoute\PaginateRouteServiceProvider',
 ];
 
 'aliases' => [
     ...
-    'PaginateRoute' => 'Spatie\PaginateRoute\PaginateRouteFacade',
+    'PaginateRoute' => 'Vipertecpro\PaginateRoute\PaginateRouteFacade',
 ];
 ```
 

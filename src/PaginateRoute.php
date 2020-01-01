@@ -211,7 +211,7 @@ class PaginateRoute
             $left = $current - $side - $offset;
         }
 
-        return ! isset($left) || $left < 1 ? 1 : $left;
+        return !isset($left) || $left < 1 ? 1 : $left;
     }
 
     /**
@@ -250,7 +250,7 @@ class PaginateRoute
     {
         $urls = $this->allUrls($paginator, $full);
 
-        if ($class) {
+        if ($class !== null) {
             $class = " class=\"$class\"";
         }
 

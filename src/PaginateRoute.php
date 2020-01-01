@@ -387,7 +387,7 @@ class PaginateRoute
             $route = null;
 
             $router->group(
-                ['middleware' => 'Spatie\PaginateRoute\SetPageMiddleware'],
+                ['middleware' => 'Vipertecpro\PaginateRoute\SetPageMiddleware'],
                 function () use ($pageKeyword, $router, $uri, $action, &$route) {
                     $route = $router->get($uri.'/{pageQuery?}', $action)->where('pageQuery', $pageKeyword.'/[0-9]+');
                 });

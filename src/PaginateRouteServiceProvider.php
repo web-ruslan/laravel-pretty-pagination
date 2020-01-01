@@ -21,6 +21,6 @@ class PaginateRouteServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('paginateroute', 'Spatie\PaginateRoute\PaginateRoute');
+        $this->app->singleton('paginateroute', 'Vipertecpro\PaginateRoute\PaginateRoute');
     }
 }

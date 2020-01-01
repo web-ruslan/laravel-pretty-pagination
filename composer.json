@@ -1,0 +1,59 @@
+{
+    "name": "vipertecpro/laravel-pretty-pagination",
+    "description": "Laravel outer extension to easily use laravel's paginator without the query string",
+    "keywords": [
+        "vipertecpro",
+        "laravel-pretty-pagination",
+        "SEO",
+        "laravel",
+        "pagination",
+        "routing"
+    ],
+    "homepage": "https://github.com/vipertecpro/laravel-pretty-pagination",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vipul Walia",
+            "email": "vipertecpro@gmail.com",
+            "homepage": "https://www.vipertecpro.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "^8.0",
+        "roave/security-advisories": "dev-master",
+        "illuminate/contracts": "6.*",
+        "illuminate/routing": "6.*",
+        "illuminate/translation": "6.*",
+        "orchestra/testbench": "~3.8.0|^4.0",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vipertecpro\\PaginateRoute\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vipertecpro\\PaginateRoute\\Test\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Vipertecpro\\PaginateRoute\\PaginateRouteServiceProvider"
+            ],
+            "aliases": {
+                "PaginateRoute": "Vipertecpro\\PaginateRoute\\PaginateRouteFacade"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

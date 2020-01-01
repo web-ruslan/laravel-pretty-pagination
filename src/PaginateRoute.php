@@ -2,13 +2,13 @@
 
 namespace Vipertecpro\PaginateRoute;
 
-use Illuminate\Routing\Router;
-use Illuminate\Translation\Translator;
-use Illuminate\Support\Facades\Request;
-use Illuminate\Routing\RouteParameterBinder;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Contracts\Routing\UrlGenerator;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Routing\RouteParameterBinder;
+use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Translation\Translator;
 
 class PaginateRoute
 {
@@ -84,7 +84,7 @@ class PaginateRoute
      *
      * @param Paginator $paginator
      *
-     * @return string|null
+     * @return null|integer
      */
     public function nextPage(Paginator $paginator)
     {
@@ -128,7 +128,7 @@ class PaginateRoute
     /**
      * Get the previous page number.
      *
-     * @return string|null
+     * @return null|integer
      */
     public function previousPage()
     {

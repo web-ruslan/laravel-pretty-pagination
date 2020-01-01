@@ -1,6 +1,6 @@
 {
     "name": "vipertecpro/laravel-pretty-pagination",
-    "description": "Laravel outer extension to easily use laravel's paginator without the query string",
+    "description": "Laravel SEO friendly pagination routing.",
     "keywords": [
         "vipertecpro",
         "laravel-pretty-pagination",

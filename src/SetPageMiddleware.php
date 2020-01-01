@@ -2,7 +2,7 @@
 
 namespace Vipertecpro\PaginateRoute;
 
-use Illuminate\Http\Request;
+use Request;
 use Route;
 use Closure;
 use Illuminate\Pagination\Paginator;
@@ -16,7 +16,7 @@ class SetPageMiddleware
      * @param Closure $next
      * @return Request
      */
-    public function handle($request, Closure $next): Request
+    public function handle($request, Closure $next)
     {
         Paginator::currentPageResolver(function () {
             return app('paginateroute')->currentPage();

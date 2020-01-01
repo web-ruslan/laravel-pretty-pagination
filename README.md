@@ -1,21 +1,12 @@
-🚨 THIS PACKAGE HAS BEEN ABANDONED 🚨
+# Laravel 6.* : Laravel Pretty Pagination 
 
-We don't use this package anymore in our own projects and cannot justify the time needed to maintain it anymore. That's why we have chosen to abandon it. Feel free to fork our code and maintain your own copy.
-
-# Laravel Paginate Route
-
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-paginateroute.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-paginateroute)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/spatie/laravel-paginateroute.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-paginateroute)
-[![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-paginateroute.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-paginateroute)
-[![StyleCI](https://styleci.io/repos/36791555/shield?branch=master)](https://styleci.io/repos/36791555)
-[![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-paginateroute.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-paginateroute)
+[![Latest Stable Version](https://poser.pugx.org/vipertecpro/laravel-pretty-pagination/v/stable)](https://packagist.org/packages/vipertecpro/laravel-pretty-pagination)
+[![Total Downloads](https://poser.pugx.org/vipertecpro/laravel-pretty-pagination/downloads)](https://packagist.org/packages/vipertecpro/laravel-pretty-pagination)
+[![Build Status](https://travis-ci.org/vipertecpro/laravel-pretty-pagination.svg?branch=master)](https://travis-ci.org/vipertecpro/laravel-pretty-pagination)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vipertecpro/laravel-pretty-pagination/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vipertecpro/laravel-pretty-pagination/?branch=master)
+[![License](https://poser.pugx.org/vipertecpro/laravel-pretty-pagination/license)](https://packagist.org/packages/vipertecpro/laravel-pretty-pagination)
 
 This package adds the `paginate` route method to support pagination via custom routes instead of query strings. This also allows for easily translatable pagination routes ex. `/news/page/2`, `/nieuws/pagina/2`.
-
-Spatie is a webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
-
-**Note:** If you're upgrading to 2.0, check out the [upgrade guide](#upgrading) below.
 
 ## Postcardware
 
@@ -26,11 +17,9 @@ Our address is: Spatie, Samberstraat 69D, 2060 Antwerp, Belgium.
 The best postcards will get published on the open source page on our website.
 
 ## Install
-
 Via Composer
-
 ``` bash
-$ composer require spatie/laravel-paginateroute
+composer require vipertecpro/laravel-pretty-pagination
 ```
 
 First register the service provider and facade in your application.
@@ -92,7 +81,7 @@ public function index()
 If you want to customize or add translations for the "page" url segment, you can publish the language files.
 
 ``` bash
-$ php artisan vendor:publish --provider="Spatie\PaginateRoute\PaginateRouteServiceProvider"
+php artisan vendor:publish --provider="Vipertecpro\PaginateRoute\PaginateRouteServiceProvider"
 ```
 
 ### Generating Url's
@@ -100,7 +89,6 @@ $ php artisan vendor:publish --provider="Spatie\PaginateRoute\PaginateRouteServi
 Since Laravel's paginator url's will still use a query string, PaginateRoute has it's own url generator and page helper functions.
 
 ```
-{{-- $users is an instance of \Illuminate\Contracts\Pagination\Paginator --}}
 
 @if(PaginateRoute::hasPreviousPage())
   <a href="{{ PaginateRoute::previousPageUrl() }}">Previous</a>
@@ -202,9 +190,13 @@ public function allUrls(LengthAwarePaginator $paginator, $full = false)
  * @return string
  */
 public function renderPageList(LengthAwarePaginator $paginator, $full = false, $class = null, $additionalLinks = false)
+
 ```
 
 ```html
+/**
+ * Example : {!! PaginateRoute::renderPageList($users) !!}
+ */
 <!-- Example output: -->
 <ul class="pagination">
     <li><a href="http://example.com/news">1</a></li>
@@ -240,17 +232,8 @@ The package contains some integration/smoke tests, set up with Orchestra. The te
 $ phpunit
 ```
 
-## Upgrading
-
-### 1.x => 2.0
-
-The 2.0 release changes the route macro to only register one route with the entire query in it, so providing a page parameter to the action link is no longer possible.
-
-For example, `action('FooController@bar', ['page' => 3])` is no longer possible, and should be replaced by `PaginateRoute::addPageQuery(action('FooController@bar'), 3)`.
-
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+## Comming Soon
+ - Bootstrap 4.* supported pagination rendering.
 
 ## Contributing
 
@@ -258,15 +241,12 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security
 
-If you discover any security related issues, please email freek@spatie.be instead of using the issue tracker.
+If you discover any security related issues, please email vipertecpro@gmail.com instead of using the issue tracker.
 
 ## Credits
 
 - [Sebastian De Deyne](https://github.com/sebastiandedeyne)
 - [All Contributors](../../contributors)
-
-## About Spatie
-Spatie is a webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
 ## License
 

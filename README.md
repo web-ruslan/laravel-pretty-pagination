@@ -186,7 +186,7 @@ public function renderPageList(LengthAwarePaginator $paginator, $full = false, $
 
 ```html
 /**
- * Example : {!! PaginateRoute::renderPageList($users) !!}
+ * Example : {!! PaginateRoute::renderPageList($items,true,'pagination',true) !!}
  */
 <!-- Example output: -->
 <ul class="pagination">

@@ -246,42 +246,33 @@ class PaginateRoute
      *
      * @return string
      */
+
     public function renderPageList(LengthAwarePaginator $paginator, $full = false, $class = null, $additionalLinks = false)
     {
         $urls = $this->allUrls($paginator, $full);
-
         if ($class !== null) {
             $class = " class=\"$class\"";
         }
-
         $listItems = "<ul{$class}>";
-
         if ($this->hasPreviousPage() && $additionalLinks) {
-            $listItems .= "<li><a href=\"{$this->previousPageUrl()}\">&laquo;</a></li>";
+            $listItems .= "<li class='page-item'> <a class='page-link' href=\"{$this->previousPageUrl()}\">&laquo;</a></li>";
         }
-
         foreach ($urls as $i => $url) {
             $pageNum = $i;
-            $css = '';
-
-            $link = "<a href=\"{$url}\">{$pageNum}</a>";
+            $css = ' class="page-item"';
+            $link = "<a class='page-link' href=\"{$url}\">{$pageNum}</a>";
             if ($pageNum == $this->currentPage()) {
-                $css = ' class="active"';
-                $link = $pageNum;
+                $css = ' class="page-item active"';
+                $link = "<span class='page-link' href=\"{$url}\">{$pageNum}</span>";
             }
-
             $listItems .= "<li{$css}>$link</li>";
         }
-
         if ($this->hasNextPage($paginator) && $additionalLinks) {
-            $listItems .= "<li><a href=\"{$this->nextPageUrl($paginator)}\">&raquo;</a></li>";
+            $listItems .= "<li class='page-item'> <a class='page-link' href=\"{$this->nextPageUrl($paginator)}\">&raquo;</a></li>";
         }
-
         $listItems .= '</ul>';
-
         return $listItems;
     }
-
     /**
      * Render html link tags for SEO indication of previous and next page.
      *

@@ -2,7 +2,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/vipertecpro/laravel-pretty-pagination/v/stable)](https://packagist.org/packages/vipertecpro/laravel-pretty-pagination)
 [![Total Downloads](https://poser.pugx.org/vipertecpro/laravel-pretty-pagination/downloads)](https://packagist.org/packages/vipertecpro/laravel-pretty-pagination)
-[![Build Status](https://travis-ci.org/vipertecpro/laravel-pretty-pagination.svg?branch=master)](https://travis-ci.org/vipertecpro/laravel-pretty-pagination)
+[![Build Status](https://scrutinizer-ci.com/g/vipertecpro/laravel-pretty-pagination/badges/build.png?b=master)](https://scrutinizer-ci.com/g/vipertecpro/laravel-pretty-pagination/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vipertecpro/laravel-pretty-pagination/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vipertecpro/laravel-pretty-pagination/?branch=master)
 [![License](https://poser.pugx.org/vipertecpro/laravel-pretty-pagination/license)](https://packagist.org/packages/vipertecpro/laravel-pretty-pagination)
 

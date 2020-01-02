@@ -2,9 +2,9 @@
 
 namespace Vipertecpro\PaginateRoute;
 
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Contracts\Routing\UrlGenerator;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Routing\RouteParameterBinder;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Request;
@@ -201,7 +201,11 @@ class PaginateRoute
      */
     public function getLeftPoint(LengthAwarePaginator $paginator): int
     {
-        $side = $paginator->onEachSide;
+        if ($paginator instanceof LengthAwarePaginator) {
+            $side = $paginator->onEachSide;
+        }else{
+            $side = 0;
+        }
         $current = $paginator->currentPage();
         $last = $paginator->lastPage();
 

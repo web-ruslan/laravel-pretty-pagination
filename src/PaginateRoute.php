@@ -3,7 +3,6 @@
 namespace Vipertecpro\PaginateRoute;
 
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Routing\RouteParameterBinder;
 use Illuminate\Routing\Router;
@@ -82,11 +81,11 @@ class PaginateRoute
     /**
      * Get the next page number.
      *
-     * @param Paginator $paginator
+     * @param LengthAwarePaginator $paginator
      *
      * @return int|void
      */
-    public function nextPage(Paginator $paginator)
+    public function nextPage(LengthAwarePaginator $paginator)
     {
         if (! $paginator->hasMorePages()) {
             return;
@@ -96,13 +95,13 @@ class PaginateRoute
     }
 
     /**
-     * Determine wether there is a next page.
+     * Determine weather there is a next page.
      *
-     * @param Paginator $paginator
+     * @param LengthAwarePaginator $paginator
      *
      * @return bool
      */
-    public function hasNextPage(Paginator $paginator): bool
+    public function hasNextPage(LengthAwarePaginator $paginator): bool
     {
         return $this->nextPage($paginator) !== null;
     }
@@ -110,11 +109,11 @@ class PaginateRoute
     /**
      * Get the next page URL.
      *
-     * @param Paginator $paginator
+     * @param LengthAwarePaginator $paginator
      *
      * @return string|void
      */
-    public function nextPageUrl(Paginator $paginator)
+    public function nextPageUrl(LengthAwarePaginator $paginator)
     {
         $nextPage = $this->nextPage($paginator);
 
@@ -242,16 +241,16 @@ class PaginateRoute
      * Render a plain html list with previous, next and all urls. The current page gets a current class on the list item.
      *
      * @param LengthAwarePaginator $paginator
-     * @param bool                                                  $full              Return the full version of the URL in for the first page
+     * @param bool $full Return the full version of the URL in for the first page
      *                                                                                 Ex. /users/page/1 instead of /users
-     * @param string                                                $class             Include class on pagination list
+     * @param string $class Include class on pagination list
      *                                                                                 Ex. <ul class="pagination">
-     * @param bool                                                  $additionalLinks   Include prev and next links on pagination list
+     * @param bool $additionalLinks Include prev and next links on pagination list
      *
      * @return string
      */
 
-    public function renderPageList(LengthAwarePaginator $paginator, $full = false, $class = null, $additionalLinks = false)
+    public function renderPageList(LengthAwarePaginator $paginator, $full = false, $class = null, $additionalLinks = false): string
     {
         $urls = $this->allUrls($paginator, $full);
         if ($class !== null) {
@@ -310,12 +309,11 @@ class PaginateRoute
 
     /**
      * @param LengthAwarePaginator $paginator
-     * @param bool $full      Return the full version of the URL in for the first page
+     * @param bool $full Return the full version of the URL in for the first page
      *                                                                         Ex. /users/page/1 instead of /users
      *
      * @return string
-     *@deprecated in favor of renderPageList.
-     *
+     * @deprecated in favor of renderPageList.
      */
     public function renderHtml(LengthAwarePaginator $paginator, $full = false): string
     {
@@ -329,7 +327,7 @@ class PaginateRoute
      * @param bool $full Return the full version of the URL in for the first page
      *                   Ex. /users/page/1 instead of /users
      *
-     * @return string
+     * @return string|null
      */
     public function pageUrl($page, $full = false): string
     {

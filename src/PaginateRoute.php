@@ -28,7 +28,7 @@ class PaginateRoute
     protected $urlGenerator;
 
     /**
-     * @var string
+     * @var string|array
      */
     protected $pageKeyword;
 
@@ -74,7 +74,7 @@ class PaginateRoute
      *
      * @return bool
      */
-    public function isCurrentPage($page)
+    public function isCurrentPage($page): bool
     {
         return $this->currentPage() === $page;
     }
@@ -84,7 +84,7 @@ class PaginateRoute
      *
      * @param Paginator $paginator
      *
-     * @return null|integer
+     * @return int|void
      */
     public function nextPage(Paginator $paginator)
     {
@@ -102,7 +102,7 @@ class PaginateRoute
      *
      * @return bool
      */
-    public function hasNextPage(Paginator $paginator)
+    public function hasNextPage(Paginator $paginator): bool
     {
         return $this->nextPage($paginator) !== null;
     }
@@ -112,7 +112,7 @@ class PaginateRoute
      *
      * @param Paginator $paginator
      *
-     * @return string|null
+     * @return string|void
      */
     public function nextPageUrl(Paginator $paginator)
     {
@@ -128,7 +128,7 @@ class PaginateRoute
     /**
      * Get the previous page number.
      *
-     * @return null|integer
+     * @return int|void|null
      */
     public function previousPage()
     {
@@ -144,7 +144,7 @@ class PaginateRoute
      *
      * @return bool
      */
-    public function hasPreviousPage()
+    public function hasPreviousPage(): bool
     {
         return $this->previousPage() !== null;
     }
@@ -155,9 +155,9 @@ class PaginateRoute
      * @param bool $full Return the full version of the URL in for the first page
      *                   Ex. /users/page/1 instead of /users
      *
-     * @return string|null
+     * @return string|void|null
      */
-    public function previousPageUrl($full = false)
+    public function previousPageUrl($full = false): ?string
     {
         $previousPage = $this->previousPage();
 
@@ -177,7 +177,7 @@ class PaginateRoute
      *
      * @return array
      */
-    public function allUrls(LengthAwarePaginator $paginator, $full = false)
+    public function allUrls(LengthAwarePaginator $paginator, $full = false): array
     {
         if (! $paginator->hasPages()) {
             return [];
@@ -199,7 +199,7 @@ class PaginateRoute
      * @param LengthAwarePaginator $paginator
      * @return int
      */
-    public function getLeftPoint(LengthAwarePaginator $paginator)
+    public function getLeftPoint(LengthAwarePaginator $paginator): int
     {
         $side = $paginator->onEachSide;
         $current = $paginator->currentPage();
@@ -220,7 +220,7 @@ class PaginateRoute
      * @param LengthAwarePaginator $paginator
      * @return int
      */
-    public function getRightPoint(LengthAwarePaginator $paginator)
+    public function getRightPoint(LengthAwarePaginator $paginator): int
     {
         $side = $paginator->onEachSide;
         $current = $paginator->currentPage();
@@ -261,7 +261,7 @@ class PaginateRoute
             $pageNum = $i;
             $css = ' class="page-item"';
             $link = "<a class='page-link' href=\"{$url}\">{$pageNum}</a>";
-            if ($pageNum == $this->currentPage()) {
+            if ($pageNum === $this->currentPage()) {
                 $css = ' class="page-item active"';
                 $link = "<span class='page-link' href=\"{$url}\">{$pageNum}</span>";
             }
@@ -282,7 +282,7 @@ class PaginateRoute
      *
      * @return string
      */
-    public function renderRelLinks(LengthAwarePaginator $paginator, $full = false)
+    public function renderRelLinks(LengthAwarePaginator $paginator, $full = false): string
     {
         $urls = $this->allUrls($paginator, $full);
 
@@ -313,7 +313,7 @@ class PaginateRoute
      *@deprecated in favor of renderPageList.
      *
      */
-    public function renderHtml(LengthAwarePaginator $paginator, $full = false)
+    public function renderHtml(LengthAwarePaginator $paginator, $full = false): string
     {
         return $this->renderPageList($paginator, $full);
     }
@@ -327,7 +327,7 @@ class PaginateRoute
      *
      * @return string
      */
-    public function pageUrl($page, $full = false)
+    public function pageUrl($page, $full = false): string
     {
         $currentPageUrl = $this->router->getCurrentRoute()->uri();
 
@@ -356,7 +356,7 @@ class PaginateRoute
      *
      * @return string
      */
-    public function addPageQuery($url, $page, $full = false)
+    public function addPageQuery($url, $page, $full = false): string
     {
         // If the first page's URL is requested and $full is set to false, there's nothing to be added.
         if ($page === 1 && ! $full) {
@@ -369,7 +369,7 @@ class PaginateRoute
     /**
      * Register the Route::paginate macro.
      */
-    public function registerMacros()
+    public function registerMacros(): void
     {
         $pageKeyword = $this->pageKeyword;
         $router = $this->router;

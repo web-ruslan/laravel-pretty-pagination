@@ -34,13 +34,13 @@ Then register the macros in `App\Providers\RouteServiceProvider::boot()`.
 ```php
 // app/Providers/RouteServiceProvider.php
 
-use PaginateRoute;
+use Vipertecpro\PaginateRoute\PaginateRouteFacade as PaginateRoute;
 
 // ...
 
 public function boot()
 {
-    PaginateRoute::registerMacros();
+    PaginateRoute::registerMacros(); // Add this line
 
     parent::boot();
 }

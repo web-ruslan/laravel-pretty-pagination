@@ -210,8 +210,10 @@ class PaginateRoute
             $offset = $x >= $last ? $x - $last : 0;
             $left = $current - $side - $offset;
         }
-
-        return !isset($left) || $left < 1 ? 1 : $left;
+        if(!isset($left) || $left < 1){
+            return 1;
+        }
+        return $left;
     }
 
     /**
@@ -230,8 +232,10 @@ class PaginateRoute
             $offset = $current <= $side ? $side - $current + 1 : 0;
             $right = $current + $side + $offset;
         }
-
-        return ! isset($right) || $right > $last ? $last : $right;
+        if(!isset($right) || $right > $last){
+            return $last;
+        }
+        return $right;
     }
 
     /**

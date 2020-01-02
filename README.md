@@ -4,6 +4,7 @@
 [![Total Downloads](https://poser.pugx.org/vipertecpro/laravel-pretty-pagination/downloads)](https://packagist.org/packages/vipertecpro/laravel-pretty-pagination)
 [![Build Status](https://scrutinizer-ci.com/g/vipertecpro/laravel-pretty-pagination/badges/build.png?b=master)](https://scrutinizer-ci.com/g/vipertecpro/laravel-pretty-pagination/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vipertecpro/laravel-pretty-pagination/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vipertecpro/laravel-pretty-pagination/?branch=master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/vipertecpro/laravel-pretty-pagination/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 [![License](https://poser.pugx.org/vipertecpro/laravel-pretty-pagination/license)](https://packagist.org/packages/vipertecpro/laravel-pretty-pagination)
 
 This package adds the `paginate` route method to support pagination via custom routes instead of query strings. This also allows for easily translatable pagination routes ex. `/news/page/2`, `/nieuws/pagina/2`.

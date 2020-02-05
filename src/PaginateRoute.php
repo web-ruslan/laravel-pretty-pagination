@@ -88,7 +88,7 @@ class PaginateRoute
     public function nextPage(LengthAwarePaginator $paginator)
     {
         if (! $paginator->hasMorePages()) {
-            return;
+            return null;
         }
 
         return $this->currentPage() + 1;
@@ -118,7 +118,7 @@ class PaginateRoute
         $nextPage = $this->nextPage($paginator);
 
         if ($nextPage === null) {
-            return;
+            return null;
         }
 
         return $this->pageUrl($nextPage);
@@ -132,7 +132,7 @@ class PaginateRoute
     public function previousPage()
     {
         if ($this->currentPage() <= 1) {
-            return;
+            return null;
         }
 
         return $this->currentPage() - 1;
@@ -161,7 +161,7 @@ class PaginateRoute
         $previousPage = $this->previousPage();
 
         if ($previousPage === null) {
-            return;
+            return null;
         }
 
         return $this->pageUrl($previousPage, $full);

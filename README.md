@@ -1,4 +1,4 @@
-# Laravel 6.* : Laravel Pretty Pagination 
+# Laravel 6.*|7.*|8.* : Laravel Pretty Pagination 
 
 [![Latest Stable Version](https://poser.pugx.org/vipertecpro/laravel-pretty-pagination/v/stable)](https://packagist.org/packages/vipertecpro/laravel-pretty-pagination)
 [![Total Downloads](https://poser.pugx.org/vipertecpro/laravel-pretty-pagination/downloads)](https://packagist.org/packages/vipertecpro/laravel-pretty-pagination)

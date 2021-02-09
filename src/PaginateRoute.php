@@ -322,7 +322,7 @@ class PaginateRoute
     }
 
     /**
-     * Generate a page URL, based on the request's current URL.
+     * Generate a page URL, based on custom path or the request's current URL.
      *
      * @param LengthAwarePaginator $paginator
      * @param int $page

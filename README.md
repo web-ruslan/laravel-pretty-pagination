@@ -70,6 +70,17 @@ public function index()
 }
 ```
 
+If you want to customize paginator base url just use setPath function
+
+```php
+public function index()
+{
+    $users = \App\User::simplePaginate(5);
+    $users->setPath('custom/url');
+    return view('users.index', ['users' => $users]);
+}
+```
+
 If you want to customize or add translations for the "page" url segment, you can publish the language files.
 
 ``` bash

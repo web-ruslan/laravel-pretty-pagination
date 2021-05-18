@@ -243,35 +243,62 @@ class PaginateRoute
      * @param LengthAwarePaginator $paginator
      * @param bool $full Return the full version of the URL in for the first page
      *                                                                                 Ex. /users/page/1 instead of /users
-     * @param string $class Include class on pagination list
-     *                                                                                 Ex. <ul class="pagination">
+     * @param string $styles Include $styles on pagination list
      * @param bool $additionalLinks Include prev and next links on pagination list
      *
      * @return string
      */
 
-    public function renderPageList(LengthAwarePaginator $paginator, $full = false, $class = null, $additionalLinks = false): string
+    public function renderPageList(LengthAwarePaginator $paginator, $full = false, $styles = null, $additionalLinks = false): string
     {
         $urls = $this->allUrls($paginator, $full);
-        if ($class !== null) {
-            $class = " class=\"$class\"";
+        $ul_class = '';
+        if ($styles !== null  && isset($styles['ul'])) {
+            $ul_class = " class=\"{$styles['ul']}\"";
         }
-        $listItems = "<ul{$class}>";
+        $li_class = 'page-item';
+        $a = $previous_a = $next_a = 'page-link';
+        $active_a = false;
+        $previous_label = "&laquo;";
+        $next_label = "&raquo;";
+        if ($styles !== null  && isset($styles['li'])) {
+            $li_class = $styles['li'];
+        }
+        if ($styles !== null  && isset($styles['a'])) {
+            $a = $styles['a'];
+        }
+        if ($styles !== null  && isset($styles['previous_a'])) {
+            $previous_a = $styles['previous_a'];
+        }
+        if ($styles !== null  && isset($styles['next_a'])) {
+            $next_a = $styles['next_a'];
+        }
+        if ($styles !== null  && isset($styles['active_a'])) {
+            $active_a = $styles['active_a'];
+        }
+        if ($styles !== null  && isset($styles['previous_label'])) {
+            $previous_label = $styles['previous_label'];
+        }
+        if ($styles !== null  && isset($styles['next_label'])) {
+            $next_label = $styles['next_label'];
+        }
+        $listItems = "<ul{$ul_class}>";
         if ($this->hasPreviousPage() && $additionalLinks) {
-            $listItems .= "<li class='page-item'> <a class='page-link' href=\"{$this->previousPageUrl()}\">&laquo;</a></li>";
+            $listItems .= "<li class='$li_class'> <a class='$previous_a' href=\"{$this->previousPageUrl($paginator)}\">$previous_label</a></li>";
         }
         foreach ($urls as $i => $url) {
             $pageNum = $i;
-            $css = ' class="page-item"';
-            $link = "<a class='page-link' href=\"{$url}\">{$pageNum}</a>";
+            $li_active = '';
+            $link = "<a class='$a' href=\"{$url}\">{$pageNum}</a>";
             if ($pageNum === $this->currentPage()) {
-                $css = ' class="page-item active"';
-                $link = "<span class='page-link' href=\"{$url}\">{$pageNum}</span>";
+                $li_active = $active_a ? '' : 'active';
+                $a_active = $active_a ? $active_a : '';
+                $link = "<a class='$a $a_active' href=\"{$url}\">{$pageNum}</a>";
             }
-            $listItems .= "<li{$css}>$link</li>";
+            $listItems .= "<li class='$li_class $li_active'>$link</li>";
         }
         if ($this->hasNextPage($paginator) && $additionalLinks) {
-            $listItems .= "<li class='page-item'> <a class='page-link' href=\"{$this->nextPageUrl($paginator)}\">&raquo;</a></li>";
+            $listItems .= "<li class='$li_class'> <a class='$next_a' href=\"{$this->nextPageUrl($paginator)}\">$next_label</a></li>";
         }
         $listItems .= '</ul>';
         return $listItems;

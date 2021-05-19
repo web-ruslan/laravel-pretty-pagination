@@ -70,6 +70,17 @@ public function index()
 }
 ```
 
+If you want to customize paginator base url just use setPath function
+
+```php
+public function index()
+{
+    $users = \App\User::simplePaginate(5);
+    $users->setPath('custom/url');
+    return view('users.index', ['users' => $users]);
+}
+```
+
 If you want to customize or add translations for the "page" url segment, you can publish the language files.
 
 ``` bash
@@ -119,9 +130,10 @@ public function nextPageUrl(Paginator $paginator)
 
 ```php
 /**
+ * @param  \Illuminate\Contracts\Pagination\Paginator $paginator
  * @return int|null
  */
-public function previousPage()
+public function previousPage(Paginator $paginator)
 ```
 
 ```php
@@ -141,11 +153,12 @@ public function previousPageUrl($full = false)
 
 ```php
 /**
+ * @param  \Illuminate\Contracts\Pagination\Paginator $paginator
  * @param int  $page
  * @param bool $full
  * @return string
  */
-public function pageUrl($page, $full = false)
+public function pageUrl(Paginator $paginator, $page, $full = false)
 ```
 
 If `$full` is true, the first page will be a fully qualified url. Ex. `/users/page/1` instead if just `/users` (this is the default).

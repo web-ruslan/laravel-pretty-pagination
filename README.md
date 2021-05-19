@@ -190,25 +190,64 @@ public function allUrls(LengthAwarePaginator $paginator, $full = false)
 /**
  * @param  \Illuminate\Contracts\Pagination\LengthAwarePaginator $paginator
  * @param  bool $full
- * @param  string $class
+ * @param  array $styles
  * @param  bool $additionalLinks
  * @return string
  */
-public function renderPageList(LengthAwarePaginator $paginator, $full = false, $class = null, $additionalLinks = false)
+public function renderPageList(LengthAwarePaginator $paginator, $full = false, $styles = null, $additionalLinks = false)
 
 ```
 
 ```html
 /**
- * Example : {!! PaginateRoute::renderPageList($items,true,'pagination',true) !!}
+ * Example : {!! PaginateRoute::renderPageList($items,true,null,true) !!}
  */
 <!-- Example output: -->
-<ul class="pagination">
+<ul>
     <li><a href="http://example.com/news">1</a></li>
     <li><a href="http://example.com/news/page/2">2</a></li>
     <li class="active"><a href="http://example.com/news/page/3">3</a></li>
     <li><a href="http://example.com/news/page/4">4</a></li>
     <li><a href="http://example.com/news/page/4">&raquo;</a></li>
+</ul>
+```
+You can add styles for paginator like this:
+
+```html
+/**
+ * Example : {!! PaginateRoute::renderPageList($companies, false,
+ * [
+ *    'ul' => 'pagination-list',
+ *    'li' => 'pagination-list-item',
+ *    'a' => 'pagination-list-link',
+ *    'previous_a' => 'pagination-prev',
+ *    'next_a' => 'pagination-next',
+ *    'active_a' => 'pagination-active',
+ *    'previous_label' => '<i class="fas fa-chevron-left"></i>',
+ *    'next_label' => '<i class="fas fa-chevron-right"></i>',
+ * ],
+ * true) !!}
+ */
+<!-- Example output: -->
+<ul class="pagination-list">
+    <li class="pagination-list-item">
+        <a href="http://example.com/news" class="pagination-prev"><i class="fas fa-chevron-left"></i></a>
+    </li>
+    <li class="pagination-list-item">
+        <a href="http://example.com/news/page/2" class="pagination-list-link pagination-active">2</a>
+    </li>
+    <li class="pagination-list-item">
+        <a href="http://example.com/news/page/3" class="pagination-list-link">3</a>
+    </li>
+    <li class="pagination-list-item">
+        <a href="http://example.com/news/page/4" class="pagination-list-link">4</a>
+    </li>
+    <li class="pagination-list-item">
+        <a href="http://example.com/news/page/5" class="pagination-list-link">4</a>
+    </li>
+    <li class="pagination-list-item">
+        <a href="http://example.com/news/page/3" class="pagination-next"><i class="fas fa-chevron-right"></i></a>
+    </li>
 </ul>
 ```
 

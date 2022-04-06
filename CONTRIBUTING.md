@@ -2,7 +2,7 @@
 
 Contributions are **welcome** and will be fully **credited**.
 
-We accept contributions via Pull Requests on [Github](https://github.com/vipertecpro/laravel-pretty-pagination).
+We accept contributions via Pull Requests on [Github](https://github.com/web-ruslan/laravel-pretty-pagination).
 
 
 ## Pull Requests

@@ -1,6 +1,6 @@
 <?php
 
-namespace Vipertecpro\PaginateRoute\Test;
+namespace WebRuslan\PaginateRoute\Test;
 
 class PaginateRouteTest extends TestCase
 {

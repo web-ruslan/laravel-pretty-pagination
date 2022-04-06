@@ -1,6 +1,6 @@
 <?php
 
-namespace Vipertecpro\PaginateRoute\Test;
+namespace WebRuslan\PaginateRoute\Test;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Foundation\Application;

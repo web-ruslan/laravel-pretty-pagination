@@ -1,6 +1,6 @@
 <?php
 
-namespace Vipertecpro\PaginateRoute;
+namespace WebRuslan\PaginateRoute;
 
 use Request;
 use Route;

@@ -1,17 +1,17 @@
 # Laravel 6.*|7.*|8.*|9.* : Laravel Pretty Pagination 
 
-[![Latest Stable Version](https://poser.pugx.org/vipertecpro/laravel-pretty-pagination/v/stable)](https://packagist.org/packages/vipertecpro/laravel-pretty-pagination)
-[![Total Downloads](https://poser.pugx.org/vipertecpro/laravel-pretty-pagination/downloads)](https://packagist.org/packages/vipertecpro/laravel-pretty-pagination)
-[![Build Status](https://scrutinizer-ci.com/g/vipertecpro/laravel-pretty-pagination/badges/build.png?b=master)](https://scrutinizer-ci.com/g/vipertecpro/laravel-pretty-pagination/build-status/master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vipertecpro/laravel-pretty-pagination/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vipertecpro/laravel-pretty-pagination/?branch=master)
-[![Code Intelligence Status](https://scrutinizer-ci.com/g/vipertecpro/laravel-pretty-pagination/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
-[![License](https://poser.pugx.org/vipertecpro/laravel-pretty-pagination/license)](https://packagist.org/packages/vipertecpro/laravel-pretty-pagination)
+[![Latest Stable Version](https://poser.pugx.org/web-ruslan/laravel-pretty-pagination/v/stable)](https://packagist.org/packages/web-ruslan/laravel-pretty-pagination)
+[![Total Downloads](https://poser.pugx.org/web-ruslan/laravel-pretty-pagination/downloads)](https://packagist.org/packages/web-ruslan/laravel-pretty-pagination)
+[![Build Status](https://scrutinizer-ci.com/g/web-ruslan/laravel-pretty-pagination/badges/build.png?b=master)](https://scrutinizer-ci.com/g/web-ruslan/laravel-pretty-pagination/build-status/master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/web-ruslan/laravel-pretty-pagination/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/web-ruslan/laravel-pretty-pagination/?branch=master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/web-ruslan/laravel-pretty-pagination/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+[![License](https://poser.pugx.org/web-ruslan/laravel-pretty-pagination/license)](https://packagist.org/packages/web-ruslan/laravel-pretty-pagination)
 
 This package adds the `paginate` route method to support pagination via custom routes instead of query strings. This also allows for easily translatable pagination routes ex. `/news/page/2`, `/nieuws/pagina/2`.
 ## Install
 Via Composer
 ``` bash
-composer require vipertecpro/laravel-pretty-pagination
+composer require web-ruslan/laravel-pretty-pagination
 ```
 
 First register the service provider and facade in your application.
@@ -21,12 +21,12 @@ First register the service provider and facade in your application.
 
 'providers' => [
     ...
-    'Vipertecpro\PaginateRoute\PaginateRouteServiceProvider',
+    'Web-ruslan\PaginateRoute\PaginateRouteServiceProvider',
 ];
 
 'aliases' => [
     ...
-    'PaginateRoute' => 'Vipertecpro\PaginateRoute\PaginateRouteFacade',
+    'PaginateRoute' => 'Web-ruslan\PaginateRoute\PaginateRouteFacade',
 ];
 ```
 
@@ -35,7 +35,7 @@ Then register the macros in `App\Providers\RouteServiceProvider::boot()`.
 ```php
 // app/Providers/RouteServiceProvider.php
 
-use Vipertecpro\PaginateRoute\PaginateRouteFacade as PaginateRoute;
+use Web-ruslan\PaginateRoute\PaginateRouteFacade as PaginateRoute;
 
 // ...
 
@@ -84,7 +84,7 @@ public function index()
 If you want to customize or add translations for the "page" url segment, you can publish the language files.
 
 ``` bash
-php artisan vendor:publish --provider="Vipertecpro\PaginateRoute\PaginateRouteServiceProvider"
+php artisan vendor:publish --provider="Web-ruslan\PaginateRoute\PaginateRouteServiceProvider"
 ```
 
 ### Generating Url's
@@ -285,7 +285,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security
 
-If you discover any security related issues, please email vipertecpro@gmail.com instead of using the issue tracker.
+If you discover any security related issues, please email webruslan@gmail.com instead of using the issue tracker.
 
 ## Credits
 

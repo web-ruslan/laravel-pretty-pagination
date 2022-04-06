@@ -1,21 +1,20 @@
 {
-    "name": "vipertecpro/laravel-pretty-pagination",
+    "name": "web-ruslan/laravel-pretty-pagination",
     "description": "Laravel SEO friendly pagination routing.",
     "keywords": [
-        "vipertecpro",
+        "web-ruslan",
         "laravel-pretty-pagination",
         "SEO",
         "laravel",
         "pagination",
         "routing"
     ],
-    "homepage": "https://github.com/vipertecpro/laravel-pretty-pagination",
+    "homepage": "https://github.com/web-ruslan/laravel-pretty-pagination",
     "license": "MIT",
     "authors": [
         {
-            "name": "Vipul Walia",
-            "email": "vipertecpro@gmail.com",
-            "homepage": "https://www.vipertecpro.com",
+            "name": "Ruslan Rieznikov",
+            "email": "webruslan@gmail.com",
             "role": "Developer"
         }
     ],
@@ -33,12 +32,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Vipertecpro\\PaginateRoute\\": "src"
+            "Web-ruslan\\PaginateRoute\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Vipertecpro\\PaginateRoute\\Test\\": "tests"
+            "Web-ruslan\\PaginateRoute\\Test\\": "tests"
         }
     },
     "extra": {
@@ -47,10 +46,10 @@
         },
         "laravel": {
             "providers": [
-                "Vipertecpro\\PaginateRoute\\PaginateRouteServiceProvider"
+                "Web-ruslan\\PaginateRoute\\PaginateRouteServiceProvider"
             ],
             "aliases": {
-                "PaginateRoute": "Vipertecpro\\PaginateRoute\\PaginateRouteFacade"
+                "PaginateRoute": "Web-ruslan\\PaginateRoute\\PaginateRouteFacade"
             }
         }
     },

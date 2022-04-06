@@ -21,12 +21,12 @@ First register the service provider and facade in your application.
 
 'providers' => [
     ...
-    'Web-ruslan\PaginateRoute\PaginateRouteServiceProvider',
+    'WebRuslan\PaginateRoute\PaginateRouteServiceProvider',
 ];
 
 'aliases' => [
     ...
-    'PaginateRoute' => 'Web-ruslan\PaginateRoute\PaginateRouteFacade',
+    'PaginateRoute' => 'WebRuslan\PaginateRoute\PaginateRouteFacade',
 ];
 ```
 
@@ -35,7 +35,7 @@ Then register the macros in `App\Providers\RouteServiceProvider::boot()`.
 ```php
 // app/Providers/RouteServiceProvider.php
 
-use Web-ruslan\PaginateRoute\PaginateRouteFacade as PaginateRoute;
+use WebRuslan\PaginateRoute\PaginateRouteFacade as PaginateRoute;
 
 // ...
 
@@ -84,7 +84,7 @@ public function index()
 If you want to customize or add translations for the "page" url segment, you can publish the language files.
 
 ``` bash
-php artisan vendor:publish --provider="Web-ruslan\PaginateRoute\PaginateRouteServiceProvider"
+php artisan vendor:publish --provider="WebRuslan\PaginateRoute\PaginateRouteServiceProvider"
 ```
 
 ### Generating Url's

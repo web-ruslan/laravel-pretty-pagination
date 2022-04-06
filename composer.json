@@ -32,12 +32,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Web-ruslan\\PaginateRoute\\": "src"
+            "WebRuslan\\PaginateRoute\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Web-ruslan\\PaginateRoute\\Test\\": "tests"
+            "WebRuslan\\PaginateRoute\\Test\\": "tests"
         }
     },
     "extra": {
@@ -46,10 +46,10 @@
         },
         "laravel": {
             "providers": [
-                "Web-ruslan\\PaginateRoute\\PaginateRouteServiceProvider"
+                "WebRuslan\\PaginateRoute\\PaginateRouteServiceProvider"
             ],
             "aliases": {
-                "PaginateRoute": "Web-ruslan\\PaginateRoute\\PaginateRouteFacade"
+                "PaginateRoute": "WebRuslan\\PaginateRoute\\PaginateRouteFacade"
             }
         }
     },
